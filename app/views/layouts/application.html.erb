@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Share</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if public_signed_in? %>
+    <li><%= "マイページ" %></li>
+    <li><%= "新規投稿" %></li>
+    <li><%= "ユーザー 一覧" %></li>
+    <li><%= "記事一覧" %></li>
+    <li><%= "About" %></li>
+    <li><%= link_to "ログアウト", destroy_public_session_path, method: :delete %></li>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
