@@ -10,13 +10,23 @@
   </head>
 
   <body>
-    <% if public_signed_in? %>
-    <li><%= "マイページ" %></li>
-    <li><%= "新規投稿" %></li>
-    <li><%= "ユーザー 一覧" %></li>
-    <li><%= "記事一覧" %></li>
-    <li><%= "About" %></li>
-    <li><%= link_to "ログアウト", destroy_public_session_path, method: :delete %></li>
+    <% if customer_signed_in? %>
+      <li><%= link_to "マイページ", customers_path %></li>
+      <li><%= link_to "新規投稿", new_posts_path %></li>
+      <li><%= "ユーザー 一覧" %></li>
+      <li><%= "記事一覧" %></li>
+      <li><%= "About" %></li>
+      <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
+    <% elsif admin_signed_in? %>
+      <li><%= "マイページ" %></li>
+      <li><%= "ジャンル一覧" %></li>
+      <li><%= "ユーザ一覧" %></li>
+      <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+    <% else %>
+      <li><%= "記事一覧" %></li>
+      <li><%= link_to "About", homes_about_path %></li>
+      <li><%= link_to "新規登録", new_customer_registration_path %></li>
+      <li><%= link_to "ログイン", new_customer_session_path %></li>
     <% end %>
     <%= yield %>
   </body>

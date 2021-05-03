@@ -1,0 +1,10 @@
+<h1>Topページ</h1>
+<% @posts.each do |post| %>
+<div>
+  <p>タイトル：<%= post.title %></p>
+  <p>ジャンル：<%= post.genre %></p>
+  <p>記事の内容：<%= post.contents %></p>
+  <p>画像</p>
+  <%= attachment_image_tag post, :image, :fill, 100, 100, format: 'jpeg' %>
+</div>
+<% end %>
