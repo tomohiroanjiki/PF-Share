@@ -1,2 +1,11 @@
-<h1>Public::Customers#withdrawal</h1>
-<p>Find me in app/views/public/customers/withdrawal.html.erb</p>
+<h3>退会画面</h3>
+<div>
+  <h3>本当に退会しますか？</h3>
+  <div>
+    <p>退会する場合は、「退会する」をクリックしてください。</p>
+  </div>
+  <div>
+    <%#= link_to '退会しない', customer_path(customer.id) %>
+    <%= link_to '退会する', withdrawal_update_path, method: :patch %>
+  </div>
+</div>

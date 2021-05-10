@@ -1,1 +1,38 @@
 <h1>マイページ</h1>
+  <div>
+    <p>画像：<%= attachment_image_tag @customer, :profil_image, :fill, 100, 100, format: 'jpeg' %></p>
+    <p>名前：<%= @customer.name %></p>
+    <p>自己紹介：<%= @customer.introduction %></p>
+    <% if @customer.id == current_customer.id %>
+      <%= link_to "プロフィールを編集する", edit_customer_path(@customer.id) %>
+    <% end %>
+    <% unless @customer == current_customer %>
+      <% if current_customer.following?(@customer) %>
+        <%= link_to "フォローを外す", unfollow_path(@customer.id), method: :post %>
+      <% else %>
+        <%= link_to "フォローする", follow_path(@customer.id), method: :post %>
+      <% end %>
+    <% end %>
+    <p>
+      <%= link_to followed_customer_path do %>
+        フォロー数: <%= @customer.follower.count %>
+      <% end %>
+      <p></p>
+      <%= link_to followers_customer_path do %>
+        フォロワー数: <%= @customer.followed.count %>
+      <% end %>
+    </p>
+  </div>
+  <h3>投稿記記事一覧</h3>
+    <% @post.each do |post| %>
+      <div>
+        <%= link_to post_path(post.id) do %>
+          <%= attachment_image_tag post, :image, :fill, 100, 100, format: 'jpeg' %>
+        <% end %>
+        <p>ジャンル：<%= post.genre %></p>
+        <p>タイトル：<%= post.title %></p>
+        <% if @customer.id == current_customer.id %>
+          <p><%= link_to "記事を編集する", edit_post_path(post.id) %></p>
+        <% end %>
+      </div>
+    <% end %>
