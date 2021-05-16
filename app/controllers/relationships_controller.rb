@@ -1,12 +1,11 @@
 class RelationshipsController < ApplicationController
 
   def follow
+    @customer = Customer.find(params[:id])
     current_customer.follow(params[:id])
-    redirect_to customers_path
   end
 
   def unfollow
     current_customer.unfollow(params[:id])
-    redirect_to customers_path
   end
 end

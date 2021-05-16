@@ -31,6 +31,9 @@
         <% end %>
         <p>ジャンル：<%= post.genre %></p>
         <p>タイトル：<%= post.title %></p>
+        <% post.tags.each do |tag| %>
+          <%= tag.name %>
+        <% end %>
         <% if @customer.id == current_customer.id %>
           <p><%= link_to "記事を編集する", edit_post_path(post.id) %></p>
         <% end %>
