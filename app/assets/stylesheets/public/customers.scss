@@ -1,3 +1,25 @@
 // Place all the styles related to the public/customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user-profile {
+  width: 30%;
+  float: left;
+}
+
+.main-content {
+  width: 70%;
+  float: left;
+}
+
+.content-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1240px) {
+ .col-4 {
+   flex: 0 0 50%;
+   max-width: 50%;
+ }
+}

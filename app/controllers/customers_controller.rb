@@ -5,7 +5,7 @@ class CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-    @post = @customer.post
+    @post = @customer.post.page(params[:page]).reverse_order
   end
 
   def edit

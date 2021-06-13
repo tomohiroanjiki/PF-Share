@@ -1,12 +1,19 @@
-<h3>記事詳細ページ</h3>
-<div>
-  <p><%= attachment_image_tag @post, :image, :fill, 100, 100, format: 'jpeg' %></p>
-  <p>タイトル：<%= @post.title %></p>
-  <p>ジャンル：<%= @post.genre %></p>
-  <p>記事の内容：<%= @post.contents %></p>
-  <p>投稿日時：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
-  <% if @post.customer == current_customer %>
-    <%= link_to "消去", post_path(@post.id), method: :delete %>
-    <%= link_to "編集", edit_post_path(@post.id) %>
-  <% end %>
+<div class="card w-50 mx-auto mt-4 shadow-lg">
+  <%= attachment_image_tag @post, :image, class:"card-img-top"; %>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-10">
+        <p class="card-title">
+          <strong><i class="far fa-flag"></i><span> <%= @post.title %></span></strong>
+        </p>
+        <p class="card-text">ジャンル：<%= @post.genre %></p>
+        <p class="card-text">投稿日時：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
+        <p class="card-text">説明：<%= @post.contents %></p>
+        <% if @post.customer == current_customer %>
+          <%= link_to "消去", post_path(@post.id), method: :delete %>
+          <%= link_to "編集", edit_post_path(@post.id) %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

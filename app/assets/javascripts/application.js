@@ -18,3 +18,16 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require jquery
+//= require rails-ujs
+
+$(function() {
+    document.addEventListener("turbolinks:load", function(){
+        $('.a').slick({
+        dots: true,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        cssEase: 'ease'
+    });
+    });
+});

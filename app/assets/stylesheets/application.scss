@@ -16,3 +16,22 @@
  @import "bootstrap";
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
+
+ @import './public/homes';
+ @import './public/customers';
+
+.a{
+ margin: auto;
+ width: 100%;
+}
+
+ .c{
+  margin: auto;
+  width : auto;
+
+ }
+
+.d{
+ width: 100%;
+ text-align: center;
+}

@@ -6,6 +6,7 @@ class RelationshipsController < ApplicationController
   end
 
   def unfollow
+    @customer = Customer.find(params[:id])
     current_customer.unfollow(params[:id])
   end
 end
