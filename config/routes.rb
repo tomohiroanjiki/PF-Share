@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :customers
   get 'homes/top'
   get 'homes/about'
+  get 'search' => 'homes#search'
   resources :customers, only: [:index, :show, :edit, :update]
   post 'follow/:id' => 'relationships#follow', as: 'follow'
   resources :customers do

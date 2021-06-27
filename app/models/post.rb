@@ -20,4 +20,5 @@ class Post < ApplicationRecord
       self.tags << post_tag
     end
   end
+
 end
