@@ -7,7 +7,7 @@
       <% if customer.id != current_customer.id %>
       <div>
         <%= link_to customer_path(customer.id) do %>
-          <%= attachment_image_tag customer, :profil_image, :fill, 100, 100, format: 'jpeg' %>
+          <%= attachment_image_tag customer, :profil_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
         <% end %>
         名前：<%= customer.name %>
         <p id=<%="customer-#{customer.id}"%>>

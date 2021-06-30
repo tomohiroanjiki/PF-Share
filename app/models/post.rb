@@ -6,6 +6,8 @@ class Post < ApplicationRecord
   has_many :tags, through: :tag_relationships
    validates :title, presence: true
 
+   validates :image, presence: true
+
   def save_tags(savemicropost_tags)
     current_tags = self.tags.pluck(:name) unless self.tags.nil?
     old_tags = current_tags - savemicropost_tags

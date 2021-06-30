@@ -3,6 +3,12 @@
       <div class="mx-auto">
         <div class="col-md">
         <h1>新規投稿</h1>
+        <% if @post.errors.any? %>
+          <%= @post.errors.count %>件のエラーが発生しました。
+          <% @post.errors.full_messages.each do |message| %>
+            <%= message %>
+          <% end %>
+        <% end %>
           <%= form_with model: @post, local: true do |f| %>
             <%= f.attachment_field :image %>
             <h2>タイトル</h2>
