@@ -1,8 +1,12 @@
 <div class="container">
       <div class="user-profile">
         <p><%= attachment_image_tag @customer, :profil_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></p>
-        <p>名前：<%= @customer.name %></p>
-        <p>自己紹介：<%= @customer.introduction %></p>
+        <p>
+          名前：<%= @customer.name %>
+        </p>
+        <p>
+          自己紹介：<%= @customer.introduction %>
+        </p>
         <% if @customer.id == current_customer.id %>
           <%= link_to "プロフィールを編集する", edit_customer_path(@customer.id) %>
         <% end %>
