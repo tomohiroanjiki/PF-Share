@@ -5,9 +5,7 @@
         <h3>プロフィール編集ページ</h3>
         <div>
           <%= form_with model:@customer, local:true do |f| %>
-            <p>
-              <%= f.attachment_field :profil_image %>
-            </p>
+            <p><%= f.attachment_field :profil_image %></p>
             <p>名前　<%= f.text_field :name %></p>
             <p>自己紹介　<%= f.text_area :introduction %></p>
             <p><%= f.submit '保存' %></p>
