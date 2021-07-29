@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   devise_for :admins
   namespace :admin do
     get 'homes/index'
-    resource :customers, only: [:show, :index, :update]
+    resource :customers, only: [:show, :index, :update, :edit]
 
   end
 
