@@ -5,10 +5,8 @@
       <%= form_with model:@post, local: true do |f| %>
         <br>
           <%= f.attachment_field :image %>
-        <h2>タイトル</h2>
-          <%= f.text_field :title %>
-        <h2>ジャンル</h2>
-          <%= f.text_field :genre %>
+        <h2>タイトル</h2><%= f.text_field :title %>
+        <h2>ジャンル</h2><%= f.text_field :genre %>
         <h2>記事の内容</h2>
           <%= f.text_area :contents %>
         <br>
