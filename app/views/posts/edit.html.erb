@@ -7,8 +7,7 @@
           <%= f.attachment_field :image %>
         <h2>タイトル</h2><%= f.text_field :title %>
         <h2>ジャンル</h2><%= f.text_field :genre %>
-        <h2>記事の内容</h2>
-          <%= f.text_area :contents %>
+        <h2>記事の内容</h2><%= f.text_area :contents %>
         <br>
         <%= f.text_field :tag_ids,value: @tag_list,\
           placeholder: "タグをつける。複数つけるには','で区切ってください。" %>
