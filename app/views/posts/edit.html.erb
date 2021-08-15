@@ -2,7 +2,8 @@
   <div class="row">
     <div class="mx-auto">
       <h3>記事編集</h3>
-      <%= form_with model:@post, local: true do |f| %><br>
+      <%= form_with model:@post, local: true do |f| %>
+      <br>
           <%= f.attachment_field :image %>
         <h2>タイトル</h2><%= f.text_field :title %>
         <h2>ジャンル</h2><%= f.text_field :genre %>
